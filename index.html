@@ -1,0 +1,1414 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VOX Technologies - Redefining AI Performance</title>
+  <link rel="icon" type="image/png" href="images/vox.png">
+  <script src="/_sdk/element_sdk.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #ffffff;
+      color: #1a1a1a;
+      overflow-x: hidden;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      scroll-behavior: smooth;
+    }
+
+    /* Header */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(20px);
+      padding: 1.5rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 999;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+    }
+
+    .logo-text {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #0066FF;
+      letter-spacing: -0.02em;
+    }
+
+    .nav {
+      display: flex;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: #1a1a1a;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav a:hover {
+      color: #0066FF;
+    }
+
+    /* Logo Scroll Section */
+    .logo-scroll-section {
+      background: #ffffff;
+      padding: 3rem 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .logo-scroll-title {
+      text-align: center;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 2rem;
+    }
+
+    .logo-scroll-container {
+      display: flex;
+      overflow: hidden;
+      user-select: none;
+      gap: 4rem;
+      mask-image: linear-gradient(
+        to right,
+        transparent,
+        black 10%,
+        black 90%,
+        transparent
+      );
+      -webkit-mask-image: linear-gradient(
+        to right,
+        transparent,
+        black 10%,
+        black 90%,
+        transparent
+      );
+    }
+
+    .logo-scroll-track {
+      display: flex;
+      gap: 4rem;
+      animation: scroll 30s linear infinite;
+      will-change: transform;
+    }
+
+    .logo-scroll-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .logo-item {
+      flex-shrink: 0;
+      width: 140px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      filter: grayscale(100%) opacity(0.5);
+      transition: all 0.3s ease;
+    }
+
+    .logo-item:hover {
+      filter: grayscale(0%) opacity(1);
+      transform: scale(1.05);
+    }
+
+    .logo-item img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .header-btn {
+      padding: 0.75rem 1.75rem;
+      background: #0066FF;
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+    }
+
+    .header-btn:hover {
+      background: #0052CC;
+      transform: translateY(-1px);
+    }
+
+    /* Hero Section */
+    .hero {
+  min-height: 100%;
+  background: linear-gradient(135deg, rgba(10, 10, 15, 0.92) 0%, rgba(26, 26, 46, 0.88) 100%), 
+              url('images/background.jpeg') center/cover no-repeat fixed;
+  display: flex;
+  align-items: center;
+  padding: 0 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 60%;
+      height: 100%;
+      background: url('images/bgblue.png') center/cover no-repeat;
+      opacity: 0.101001;
+    }
+
+    .hero-content {
+      max-width: 600px;
+      z-index: 1;
+      animation: fadeInLeft 1s ease-out;
+    }
+
+    .hero-label {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: rgba(0, 102, 255, 0.15);
+      border: 1px solid rgba(0, 102, 255, 0.4);
+      border-radius: 50px;
+      color: #00E0FF;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      backdrop-filter: blur(10px);
+    }
+
+    .hero h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 4.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: #ffffff;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero h1 .highlight {
+      background: linear-gradient(135deg, #0066FF, #00E0FF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 3rem;
+      line-height: 1.7;
+      font-weight: 300;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .hero-btn-primary {
+      padding: 1.1rem 2.5rem;
+      background: #0066FF;
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Inter', sans-serif;
+      box-shadow: 0 4px 20px rgba(0, 102, 255, 0.3);
+    }
+
+    .hero-btn-primary:hover {
+      background: #0052CC;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0, 102, 255, 0.5);
+    }
+
+    .hero-btn-secondary {
+      padding: 1.1rem 2.5rem;
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      border: 2px solid rgba(255, 255, 255, 0.4);
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Inter', sans-serif;
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-btn-secondary:hover {
+      border-color: #00E0FF;
+      color: #00E0FF;
+      background: rgba(255, 255, 255, 0.15);
+      transform: translateY(-2px);
+    }
+
+    @keyframes fadeInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Stats Section */
+    .stats-section {
+      background: #ffffff;
+      padding: 4rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .stats-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3rem;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: #0066FF;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 0.95rem;
+      color: #666;
+      font-weight: 500;
+    }
+
+    /* Products Section */
+    .products-section {
+      background: #fafbfc;
+      padding: 6rem 4rem;
+    }
+
+    .section-header {
+      max-width: 1200px;
+      margin: 0 auto 4rem;
+      text-align: center;
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: #666;
+      font-weight: 300;
+    }
+
+    .products-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .product-card {
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: 16px;
+      padding: 0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-image {
+      width: 100%;
+      height: 240px;
+      background: linear-gradient(135deg, #0066FF 0%, #00E0FF 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .product-image svg {
+      width: 60%;
+      height: 60%;
+      opacity: 0.3;
+    }
+
+    .product-info {
+      padding: 2rem;
+    }
+
+    .product-card h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.4rem;
+      color: #1a1a1a;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .product-card .tagline {
+      font-size: 0.9rem;
+      color: #0066FF;
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
+    .product-card .description {
+      font-size: 0.95rem;
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+    }
+
+    .product-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .product-card .price {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #1a1a1a;
+    }
+
+    .learn-more {
+      color: #0066FF;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: gap 0.3s ease;
+    }
+
+    .learn-more:hover {
+      gap: 0.8rem;
+    }
+
+    /* Features Section */
+    .features-section {
+      background: #ffffff;
+      padding: 6rem 4rem;
+    }
+
+    .features-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .feature-card {
+      padding: 2rem;
+      background: #fafbfc;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .feature-card:hover {
+      background: #ffffff;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .feature-icon {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #0066FF, #00E0FF);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .feature-icon svg {
+      width: 24px;
+      height: 24px;
+      fill: #ffffff;
+    }
+
+    .feature-card h4 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.2rem;
+      color: #1a1a1a;
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+    }
+
+    .feature-card p {
+      color: #666;
+      line-height: 1.6;
+      font-size: 0.95rem;
+      font-weight: 300;
+    }
+
+    /* Founders Section */
+    .founders-section {
+      background: #fafbfc;
+      padding: 6rem 4rem;
+    }
+
+    .founders-grid {
+      max-width: 500px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .founder-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .founder-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .founder-image {
+      width: 100%;
+      height: 280px;
+      background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .founder-avatar {
+      width: 140px;
+      height: 140px;
+      background: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .founder-avatar svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .founder-info {
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .founder-info h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      color: #1a1a1a;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .founder-role {
+      font-size: 0.95rem;
+      color: #0066FF;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .founder-desc {
+      font-size: 0.95rem;
+      color: #666;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+    }
+
+    .founder-social {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+    }
+
+    .founder-link {
+      width: 36px;
+      height: 36px;
+      background: #fafbfc;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #666;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+
+    .founder-link:hover {
+      background: #0066FF;
+      border-color: #0066FF;
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%);
+      padding: 6rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(0,224,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+      opacity: 0.5;
+    }
+
+    .cta-content {
+      max-width: 700px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-section h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .cta-section p {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 3rem;
+      line-height: 1.7;
+    }
+
+    .cta-form {
+      display: flex;
+      gap: 1rem;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .cta-input {
+      flex: 1;
+      padding: 1rem 1.5rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      color: #ffffff;
+      font-size: 1rem;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.3s ease;
+    }
+
+    .cta-input:focus {
+      outline: none;
+      border-color: #00E0FF;
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .cta-input::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .cta-btn {
+      padding: 1rem 2.5rem;
+      background: #0066FF;
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .cta-btn:hover {
+      background: #0052CC;
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    footer {
+      background: #0a0a0f;
+      padding: 4rem 4rem 2rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-brand h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      color: #0066FF;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .footer-brand p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .footer-column h4 {
+      font-size: 0.9rem;
+      color: #ffffff;
+      margin-bottom: 1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .footer-column ul {
+      list-style: none;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-column ul li a {
+      color: rgba(255, 255, 255, 0.5);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.3s ease;
+    }
+
+    .footer-column ul li a:hover {
+      color: #00E0FF;
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-bottom p {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, 0.5);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .social-link:hover {
+      background: rgba(0, 102, 255, 0.2);
+      border-color: #0066FF;
+      color: #00E0FF;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .header {
+        padding: 1.5rem 2rem;
+      }
+
+      .hero {
+        padding: 0 2rem;
+      }
+
+      .hero h1 {
+        font-size: 3.5rem;
+      }
+
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav {
+        display: none;
+      }
+
+      .hero {
+        background-attachment: scroll;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .stats-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-form {
+        flex-direction: column;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body><!-- Header -->
+  <header class="header">
+   <div class="logo-container" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"><span class="logo-text" id="logoText"><img src="images/vox.png" style="width: 40px;"></span>
+   </div>
+   <nav class="nav"><a href="#products" id="navProducts">Products</a> <a href="#features" id="navFeatures">Features</a> <a href="#about" id="navAbout">About</a> <a href="#contact" id="navContact">Contact</a>
+   </nav><a href="index-en.html"><button class="header-btn" id="headerBtn">ENG</button></a>
+  </header><!-- Hero Section -->
+  <section class="hero" id="hero">
+   <div class="hero-content">
+    <div class="hero-label" id="heroLabel">
+     Next-Gen AI Technology
+    </div>
+    <h1 id="heroTitle"><span class="highlight">VOX</span><br>
+     Technologies</h1>
+    <p id="heroSubtitle">GPU presisi tinggi yang dirancang untuk generasi baru komputasi AI. Rasakan performa dan efisiensi tanpa tanding.</p>
+    <div class="hero-buttons"><button class="hero-btn-primary" id="heroBtnPrimary" onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})">Explore Products</button> <button class="hero-btn-secondary" id="heroBtnSecondary" onclick="document.getElementById('features').scrollIntoView({behavior: 'smooth'})">Learn More</button>
+    </div>
+   </div>
+  </section><!-- Logo Scroll Section -->
+  <section class="logo-scroll-section">
+   <div class="logo-scroll-title" id="logoScrollTitle">
+    Trusted by Industry Leaders
+   </div>
+   <div class="logo-scroll-container">
+    <div class="logo-scroll-track">
+     <div class="logo-item"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" onerror="this.src=''; this.alt='Logo'; this.style.display='none';">
+     </div>
+     <div class="logo-item"><img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" onerror="this.src=''; this.alt='Logo'; this.style.display='none';">
+     </div>
+     <div class="logo-item"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" onerror="this.src=''; this.alt='Logo'; this.style.display='none';">
+     </div>
+     <div class="logo-item"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple" onerror="this.src=''; this.alt='Logo'; this.style.display='none';">
+     </div>
+     <div class="logo-item"><img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" alt="Meta" onerror="this.src=''; this.alt='Logo'; this.style.display='none';">
+     </div>
+     <div class="logo-item"><img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg" alt="Samsung" onerror="this.src=''; this.alt='Logo'; this.style.display='none';">
+     </div>
+     <div class="logo-item"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Tesla_logo.svg" alt="Tesla" onerror="this.src=''; this.alt='Logo'; this.style.display='none';">
+     </div>
+     <div class="logo-item"><img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" onerror="this.src=''; this.alt='Logo'; this.style.display='none';">
+     </div><!-- Duplicate for seamless loop -->
+     <div class="logo-item"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" onerror="this.src=''; this.alt='Logo'; this.style.display='none';">
+     </div>
+     <div class="logo-item"><img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" onerror="this.src=''; this.alt='Logo'; this.style.display='none';">
+     </div>
+     <div class="logo-item"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" onerror="this.src=''; this.alt='Logo'; this.style.display='none';">
+     </div>
+     <div class="logo-item"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple" onerror="this.src=''; this.alt='Logo'; this.style.display='none';">
+     </div>
+     <div class="logo-item"><img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" alt="Meta" onerror="this.src=''; this.alt='Logo'; this.style.display='none';">
+     </div>
+     <div class="logo-item"><img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg" alt="Samsung" onerror="this.src=''; this.alt='Logo'; this.style.display='none';">
+     </div>
+     <div class="logo-item"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Tesla_logo.svg" alt="Tesla" onerror="this.src=''; this.alt='Logo'; this.style.display='none';">
+     </div>
+     <div class="logo-item"><img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" onerror="this.src=''; this.alt='Logo'; this.style.display='none';">
+     </div>
+    </div>
+   </div>
+  </section><!-- Stats Section -->
+  <section class="stats-section">
+   <div class="stats-container">
+    <div class="stat-item">
+     <div class="stat-number" id="stat1Number">
+      50%
+     </div>
+     <div class="stat-label" id="stat1Label">
+      Performa yang melesat jauh lebih tinggi.
+     </div>
+    </div>
+    <div class="stat-item">
+     <div class="stat-number" id="stat2Number">
+      30%
+     </div>
+     <div class="stat-label" id="stat2Label">
+      Hemat daya tanpa kompromi performa.
+     </div>
+    </div>
+    <div class="stat-item">
+     <div class="stat-number" id="stat3Number">
+      24/7
+     </div>
+     <div class="stat-label" id="stat3Label">
+      Kami selalu siap bantu kapan pun anda butuh.
+     </div>
+    </div>
+    <div class="stat-item">
+     <div class="stat-number" id="stat4Number">
+      100K+
+     </div>
+     <div class="stat-label" id="stat4Label">
+      Komunitas global yang tumbuh bareng teknologi VOX.
+     </div>
+    </div>
+   </div>
+  </section><!-- Products Section -->
+  <section class="products-section" id="products">
+   <div class="section-header">
+    <h2 class="section-title" id="productsTitle">Our Flagship Series</h2>
+    <p class="section-subtitle" id="productsSubtitle">Discover the perfect GPU for your needs</p>
+   </div>
+   <div class="products-grid">
+    <div class="product-card">
+     <div class="product-image">
+      <img src="images/VOX Titan-X.jpg" alt="">
+      </svg>
+     </div>
+     <div class="product-info">
+      <h3 id="product1Name">VOX Titan-X</h3>
+      <p class="tagline" id="product1Tagline">Power. Precision. Perfection.</p>
+      <p class="description" id="product1Desc">Puncak dari kekuatan. Titan-X hadir dengan arsitektur generasi terbaru dan akselerasi AI tingkat lanjut.</p>
+      <div class="product-footer"><span class="price" id="product1Price">Rp 29.999.000</span> <a href="#" class="learn-more">Learn More →</a>
+      </div>
+     </div>
+    </div>
+    <div class="product-card">
+     <div class="product-image">
+      <img src="images/VOX VNX-7200 Series.png" alt="">
+     </div>
+     <div class="product-info">
+      <h3 id="product2Name">VOX VNX-7200</h3>
+      <p class="tagline" id="product2Tagline">Elegance Meets AI.</p>
+      <p class="description" id="product2Desc">Perpaduan gaya dan performa. VNX-7200 menghadirkan efisiensi dan desain elegan untuk pengalaman AI yang tak tertandingi.</p>
+      <div class="product-footer"><span class="price" id="product2Price">Rp 22.499.000</span> <a href="#" class="learn-more">Learn More →</a>
+      </div>
+     </div>
+    </div>
+    <div class="product-card">
+     <div class="product-image">
+      <img src="images/VOX VAI 300 Series.png" alt="">
+     </div>
+     <div class="product-info">
+      <h3 id="product3Name">VOX VAI-300</h3>
+      <p class="tagline" id="product3Tagline">Compact. Intelligent. Beautiful.</p>
+      <p class="description" id="product3Desc">Kecil tapi buas. Didesain untuk kreator yang pengen kekuatan AI dalam bentuk minimalis dan stylish.</p>
+      <div class="product-footer"><span class="price" id="product3Price">Rp 15.999.000</span> <a href="#" class="learn-more">Learn More →</a>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- Features Section -->
+  <section class="features-section" id="features">
+   <div class="section-header">
+    <h2 class="section-title" id="featuresTitle">Why Choose VOX?</h2>
+    <p class="section-subtitle" id="featuresSubtitle">Teknologi canggih yang bikin kami beda dari yang lain</p>
+   </div>
+   <div class="features-grid">
+    <div class="feature-card">
+     <div class="feature-icon">
+      <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z" />
+      </svg>
+     </div>
+     <h4 id="feature1Title">AI Adaptive Performance</h4>
+     <p id="feature1Desc">Jaringan neural yang belajar dari cara lo kerja dan menyesuaikan performa secara real-time.</p>
+    </div>
+    <div class="feature-card">
+     <div class="feature-icon">
+      <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" /> <path d="M7 7l3 3-3 3m6-6l3 3-3 3" stroke="currentColor" stroke-width="1.5" fill="none" />
+      </svg>
+     </div>
+     <h4 id="feature2Title">Advanced Cooling</h4>
+     <p id="feature2Desc">Sistem pendingin karbon-besi yang menjaga performa tetap stabil di puncak.</p>
+    </div>
+    <div class="feature-card">
+     <div class="feature-icon">
+      <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5zm0 18c-3.31 0-6-2.69-6-6V8.5l6-3 6 3V14c0 3.31-2.69 6-6 6z" /> <circle cx="12" cy="12" r="3" />
+      </svg>
+     </div>
+     <h4 id="feature3Title">Neural Rendering</h4>
+     <p id="feature3Desc">Rendering berbasis AI yang adaptif di setiap frame.</p>
+    </div>
+    <div class="feature-card">
+     <div class="feature-icon">
+      <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z" />
+      </svg>
+     </div>
+     <h4 id="feature4Title">VOX Sync</h4>
+     <p id="feature4Desc">Seamless synchronization across all your devices.</p>
+    </div>
+    <div class="feature-card">
+     <div class="feature-icon">
+      <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" /> <path d="M15 9l-3 3-3-3" stroke="currentColor" stroke-width="1.5" fill="none" />
+      </svg>
+     </div>
+     <h4 id="feature5Title">Energy Smart</h4>
+     <p id="feature5Desc">Sinkronisasi mulus di semua perangkat anda.</p>
+    </div>
+    <div class="feature-card">
+     <div class="feature-icon">
+      <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" />
+      </svg>
+     </div>
+     <h4 id="feature6Title">Built to Last</h4>
+     <p id="feature6Desc">Material premium dan pengujian ketat buat daya tahan jangka panjang.</p>
+    </div>
+   </div>
+  </section><!-- Founders Section -->
+  <section class="founders-section">
+   <div class="section-header">
+    <h2 class="section-title" id="foundersTitle">Meet Our Founder</h2>
+    <p class="section-subtitle" id="foundersSubtitle">Kenalan sama orang di balik VOX Technologies</p>
+   </div>
+   <div class="founders-grid">
+    <div class="founder-card">
+     <div class="founder-image">
+      <div class="founder-avatar">
+       <img src="images/vox.png" alt="">
+      </div>
+     </div>
+     <div class="founder-info">
+      <h3 id="founder1Name">M Ichsan</h3>
+      <p class="founder-role" id="founder1Role">Founder &amp; CEO</p>
+      <p class="founder-desc" id="founder1Desc">Visioner yang punya semangat buat dorong batas komputasi AI lebih jauh.
+Memimpin VOX Technologies untuk mendefinisikan ulang masa depan inovasi GPU.</p>
+      <div class="founder-social"><a href="#" class="founder-link" aria-label="LinkedIn">in</a> <a href="#" class="founder-link" aria-label="Twitter">𝕏</a>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- CTA Section -->
+  <section class="cta-section" id="contact">
+   <div class="cta-content">
+    <h2 id="ctaTitle">Siap Upgrade sistem anda?</h2>
+    <p id="ctaSubtitle">Gabung bareng ribuan profesional yang udah percaya sama VOX Technologies buat kebutuhan AI mereka.</p>
+    <form class="cta-form" id="ctaForm"><input type="email" class="cta-input" placeholder="Enter your email" required> <button type="submit" class="cta-btn" id="ctaBtn">Get Started</button>
+    </form>
+   </div>
+  </section><!-- Footer -->
+  <footer>
+   <div class="footer-content">
+    <div class="footer-brand">
+     <h3 id="footerBrand">VOX</h3>
+     <p id="footerDesc">Precision-engineered GPUs built for the next generation of AI computing.</p>
+    </div>
+    <div class="footer-column">
+     <h4>Products</h4>
+     <ul>
+      <li><a href="#">Titan-X</a></li>
+      <li><a href="#">VNX-7200</a></li>
+      <li><a href="#">VAI-300</a></li>
+      <li><a href="#">Compare</a></li>
+     </ul>
+    </div>
+    <div class="footer-column">
+     <h4>Company</h4>
+     <ul>
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">Careers</a></li>
+      <li><a href="#">Press</a></li>
+      <li><a href="#">Contact</a></li>
+     </ul>
+    </div>
+    <div class="footer-column">
+     <h4>Support</h4>
+     <ul>
+      <li><a href="#">Documentation</a></li>
+      <li><a href="#">Help Center</a></li>
+      <li><a href="#">Community</a></li>
+      <li><a href="#">Status</a></li>
+     </ul>
+    </div>
+   </div>
+   <div class="footer-bottom">
+    <p id="footerCopyright">© 2025 VOX Technologies. All rights reserved.</p>
+    <div class="social-links"><a href="#" class="social-link" aria-label="Twitter">𝕏</a> <a href="#" class="social-link" aria-label="LinkedIn">in</a> <a href="#" class="social-link" aria-label="GitHub">⚡</a>
+    </div>
+   </div>
+  </footer>
+  <script>
+    // Default configuration
+    const defaultConfig = {
+      logo_text: "VOX",
+      logo_scroll_title: "Trusted by Industry Leaders",
+      nav_products: "Products",
+      nav_features: "Features",
+      nav_about: "About",
+      nav_contact: "Contact",
+      header_btn: "Get Started",
+      hero_label: "Next-Gen AI Technology",
+      hero_title: "VOX Technologies",
+      hero_subtitle: "Precision-engineered GPUs built for the next generation of AI computing. Experience unmatched performance and efficiency.",
+      hero_btn_primary: "Explore Products",
+      hero_btn_secondary: "Learn More",
+      stat1_number: "50%",
+      stat1_label: "Faster Performance",
+      stat2_number: "30%",
+      stat2_label: "Energy Efficient",
+      stat3_number: "24/7",
+      stat3_label: "Support Available",
+      stat4_number: "100K+",
+      stat4_label: "Happy Customers",
+      products_title: "Our Flagship Series",
+      products_subtitle: "Discover the perfect GPU for your needs",
+      product1_name: "VOX Titan-X",
+      product1_tagline: "Power. Precision. Perfection.",
+      product1_desc: "The pinnacle of power. Titan-X combines next-gen architecture and advanced AI acceleration.",
+      product1_price: "$2,499",
+      product2_name: "VOX VNX-7200",
+      product2_tagline: "Elegance Meets AI.",
+      product2_desc: "A fusion of style and strength. The VNX-7200 pushes performance efficiency with elegant design.",
+      product2_price: "$1,899",
+      product3_name: "VOX VAI-300",
+      product3_tagline: "Compact. Intelligent. Beautiful.",
+      product3_desc: "Compact yet fierce. Designed for creative minds who want AI power in a sleek package.",
+      product3_price: "$1,199",
+      features_title: "Why Choose VOX?",
+      features_subtitle: "Advanced technology that sets us apart",
+      founders_title: "Meet Our Founder",
+      founders_subtitle: "The visionary behind VOX Technologies",
+      founder1_name: "M Ichsan",
+      founder1_role: "Founder & CEO",
+      founder1_desc: "Visionary entrepreneur with a passion for pushing the boundaries of AI computing. Leading VOX Technologies to redefine the future of GPU innovation.",
+      feature1_title: "AI Adaptive Performance",
+      feature1_desc: "Neural networks that learn your workflow and optimize in real-time.",
+      feature2_title: "Advanced Cooling",
+      feature2_desc: "Carbon-iron cooling system for sustained peak performance.",
+      feature3_title: "Neural Rendering",
+      feature3_desc: "AI-powered rendering that adapts to every frame.",
+      feature4_title: "VOX Sync",
+      feature4_desc: "Seamless synchronization across all your devices.",
+      feature5_title: "Energy Smart",
+      feature5_desc: "Maximum performance with minimal power consumption.",
+      feature6_title: "Built to Last",
+      feature6_desc: "Premium materials and rigorous testing ensure durability.",
+      cta_title: "Ready to elevate your system?",
+      cta_subtitle: "Join thousands of professionals who trust VOX Technologies for their AI computing needs.",
+      cta_btn: "Get Started",
+      footer_brand: "VOX",
+      footer_desc: "Precision-engineered GPUs built for the next generation of AI computing.",
+      footer_copyright: "© 2025 VOX Technologies. All rights reserved.",
+      background_color: "#ffffff",
+      primary_color: "#0066FF",
+      accent_color: "#00E0FF",
+      text_color: "#1a1a1a",
+      font_family: "Inter",
+      font_size: 16
+    };
+
+    // Form submission
+    document.getElementById('ctaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const button = this.querySelector('.cta-btn');
+      const originalText = button.textContent;
+      button.textContent = 'Sending...';
+      button.disabled = true;
+      
+      setTimeout(() => {
+        button.textContent = 'Success! ✓';
+        setTimeout(() => {
+          button.textContent = originalText;
+          button.disabled = false;
+          this.reset();
+        }, 2000);
+      }, 1500);
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Element SDK implementation
+    async function onConfigChange(config) {
+      const baseFont = config.font_family || defaultConfig.font_family;
+      const baseFontStack = 'Inter, sans-serif';
+      const baseSize = config.font_size || defaultConfig.font_size;
+
+      document.body.style.fontFamily = `${baseFont}, ${baseFontStack}`;
+
+      // Update text content
+      document.getElementById('logoText').textContent = config.logo_text || defaultConfig.logo_text;
+      document.getElementById('logoScrollTitle').textContent = config.logo_scroll_title || defaultConfig.logo_scroll_title;
+      document.getElementById('navProducts').textContent = config.nav_products || defaultConfig.nav_products;
+      document.getElementById('navFeatures').textContent = config.nav_features || defaultConfig.nav_features;
+      document.getElementById('navAbout').textContent = config.nav_about || defaultConfig.nav_about;
+      document.getElementById('navContact').textContent = config.nav_contact || defaultConfig.nav_contact;
+      document.getElementById('headerBtn').textContent = config.header_btn || defaultConfig.header_btn;
+      document.getElementById('heroLabel').textContent = config.hero_label || defaultConfig.hero_label;
+      
+      const heroTitleEl = document.getElementById('heroTitle');
+      const titleText = config.hero_title || defaultConfig.hero_title;
+      heroTitleEl.innerHTML = `<span class="highlight">${titleText.split(' ')[0]}</span><br>${titleText.split(' ').slice(1).join(' ')}`;
+      
+      document.getElementById('heroSubtitle').textContent = config.hero_subtitle || defaultConfig.hero_subtitle;
+      document.getElementById('heroBtnPrimary').textContent = config.hero_btn_primary || defaultConfig.hero_btn_primary;
+      document.getElementById('heroBtnSecondary').textContent = config.hero_btn_secondary || defaultConfig.hero_btn_secondary;
+      
+      document.getElementById('stat1Number').textContent = config.stat1_number || defaultConfig.stat1_number;
+      document.getElementById('stat1Label').textContent = config.stat1_label || defaultConfig.stat1_label;
+      document.getElementById('stat2Number').textContent = config.stat2_number || defaultConfig.stat2_number;
+      document.getElementById('stat2Label').textContent = config.stat2_label || defaultConfig.stat2_label;
+      document.getElementById('stat3Number').textContent = config.stat3_number || defaultConfig.stat3_number;
+      document.getElementById('stat3Label').textContent = config.stat3_label || defaultConfig.stat3_label;
+      document.getElementById('stat4Number').textContent = config.stat4_number || defaultConfig.stat4_number;
+      document.getElementById('stat4Label').textContent = config.stat4_label || defaultConfig.stat4_label;
+      
+      document.getElementById('productsTitle').textContent = config.products_title || defaultConfig.products_title;
+      document.getElementById('productsSubtitle').textContent = config.products_subtitle || defaultConfig.products_subtitle;
+      document.getElementById('product1Name').textContent = config.product1_name || defaultConfig.product1_name;
+      document.getElementById('product1Tagline').textContent = config.product1_tagline || defaultConfig.product1_tagline;
+      document.getElementById('product1Desc').textContent = config.product1_desc || defaultConfig.product1_desc;
+      document.getElementById('product1Price').textContent = config.product1_price || defaultConfig.product1_price;
+      document.getElementById('product2Name').textContent = config.product2_name || defaultConfig.product2_name;
+      document.getElementById('product2Tagline').textContent = config.product2_tagline || defaultConfig.product2_tagline;
+      document.getElementById('product2Desc').textContent = config.product2_desc || defaultConfig.product2_desc;
+      document.getElementById('product2Price').textContent = config.product2_price || defaultConfig.product2_price;
+      document.getElementById('product3Name').textContent = config.product3_name || defaultConfig.product3_name;
+      document.getElementById('product3Tagline').textContent = config.product3_tagline || defaultConfig.product3_tagline;
+      document.getElementById('product3Desc').textContent = config.product3_desc || defaultConfig.product3_desc;
+      document.getElementById('product3Price').textContent = config.product3_price || defaultConfig.product3_price;
+      
+      document.getElementById('featuresTitle').textContent = config.features_title || defaultConfig.features_title;
+      document.getElementById('featuresSubtitle').textContent = config.features_subtitle || defaultConfig.features_subtitle;
+      document.getElementById('foundersTitle').textContent = config.founders_title || defaultConfig.founders_title;
+      document.getElementById('foundersSubtitle').textContent = config.founders_subtitle || defaultConfig.founders_subtitle;
+      document.getElementById('founder1Name').textContent = config.founder1_name || defaultConfig.founder1_name;
+      document.getElementById('founder1Role').textContent = config.founder1_role || defaultConfig.founder1_role;
+      document.getElementById('founder1Desc').textContent = config.founder1_desc || defaultConfig.founder1_desc;
+      document.getElementById('feature1Title').textContent = config.feature1_title || defaultConfig.feature1_title;
+      document.getElementById('feature1Desc').textContent = config.feature1_desc || defaultConfig.feature1_desc;
+      document.getElementById('feature2Title').textContent = config.feature2_title || defaultConfig.feature2_title;
+      document.getElementById('feature2Desc').textContent = config.feature2_desc || defaultConfig.feature2_desc;
+      document.getElementById('feature3Title').textContent = config.feature3_title || defaultConfig.feature3_title;
+      document.getElementById('feature3Desc').textContent = config.feature3_desc || defaultConfig.feature3_desc;
+      document.getElementById('feature4Title').textContent = config.feature4_title || defaultConfig.feature4_title;
+      document.getElementById('feature4Desc').textContent = config.feature4_desc || defaultConfig.feature4_desc;
+      document.getElementById('feature5Title').textContent = config.feature5_title || defaultConfig.feature5_title;
+      document.getElementById('feature5Desc').textContent = config.feature5_desc || defaultConfig.feature5_desc;
+      document.getElementById('feature6Title').textContent = config.feature6_title || defaultConfig.feature6_title;
+      document.getElementById('feature6Desc').textContent = config.feature6_desc || defaultConfig.feature6_desc;
+      
+      document.getElementById('ctaTitle').textContent = config.cta_title || defaultConfig.cta_title;
+      document.getElementById('ctaSubtitle').textContent = config.cta_subtitle || defaultConfig.cta_subtitle;
+      document.getElementById('ctaBtn').textContent = config.cta_btn || defaultConfig.cta_btn;
+      document.getElementById('footerBrand').textContent = config.footer_brand || defaultConfig.footer_brand;
+      document.getElementById('footerDesc').textContent = config.footer_desc || defaultConfig.footer_desc;
+      document.getElementById('footerCopyright').textContent = config.footer_copyright || defaultConfig.footer_copyright;
+
+      // Apply font sizes
+      document.querySelector('.hero h1').style.fontSize = `${baseSize * 2.8}px`;
+      document.querySelector('.hero p').style.fontSize = `${baseSize * 1.2}px`;
+      document.querySelectorAll('.section-title').forEach(el => {
+        el.style.fontSize = `${baseSize * 1.6}px`;
+      });
+    }
+
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities: (config) => ({
+          recolorables: [
+            {
+              get: () => config.background_color || defaultConfig.background_color,
+              set: (value) => {
+                config.background_color = value;
+                window.elementSdk.setConfig({ background_color: value });
+              }
+            },
+            {
+              get: () => config.primary_color || defaultConfig.primary_color,
+              set: (value) => {
+                config.primary_color = value;
+                window.elementSdk.setConfig({ primary_color: value });
+              }
+            },
+            {
+              get: () => config.accent_color || defaultConfig.accent_color,
+              set: (value) => {
+                config.accent_color = value;
+                window.elementSdk.setConfig({ accent_color: value });
+              }
+            },
+            {
+              get: () => config.text_color || defaultConfig.text_color,
+              set: (value) => {
+                config.text_color = value;
+                window.elementSdk.setConfig({ text_color: value });
+              }
+            }
+          ],
+          borderables: [],
+          fontEditable: {
+            get: () => config.font_family || defaultConfig.font_family,
+            set: (value) => {
+              config.font_family = value;
+              window.elementSdk.setConfig({ font_family: value });
+            }
+          },
+          fontSizeable: {
+            get: () => config.font_size || defaultConfig.font_size,
+            set: (value) => {
+              config.font_size = value;
+              window.elementSdk.setConfig({ font_size: value });
+            }
+          }
+        }),
+        mapToEditPanelValues: (config) => new Map([
+          ["logo_text", config.logo_text || defaultConfig.logo_text],
+          ["logo_scroll_title", config.logo_scroll_title || defaultConfig.logo_scroll_title],
+          ["hero_title", config.hero_title || defaultConfig.hero_title],
+          ["hero_subtitle", config.hero_subtitle || defaultConfig.hero_subtitle],
+          ["products_title", config.products_title || defaultConfig.products_title],
+          ["cta_title", config.cta_title || defaultConfig.cta_title]
+        ])
+      });
+    }
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99c5a24c56e74ac1',t:'MTc2Mjc3ODU5MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
